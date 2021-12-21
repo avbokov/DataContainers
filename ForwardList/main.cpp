@@ -1,4 +1,4 @@
-//DataContainers\ForwardList
+п»ї//DataContainers\ForwardList
 #include<iostream>
 using namespace std;
 
@@ -6,8 +6,8 @@ using namespace std;
 
 class Element
 {
-	int Data;		// значение элемента
-	Element* pNext;	// адрес следующего элемента
+	int Data;		// Р·РЅР°С‡РµРЅРёРµ СЌР»РµРјРµРЅС‚Р°
+	Element* pNext;	// Р°РґСЂРµСЃ СЃР»РµРґСѓСЋС‰РµРіРѕ СЌР»РµРјРµРЅС‚Р°
 public:
 	Element(int Data, Element* pNext = nullptr):Data(Data), pNext(pNext)
 	{
@@ -40,11 +40,11 @@ public:
 
 	void push_front(int Data)
 	{
-		// 1) в первую очередь мы создаём новый элемент
+		// 1) РІ РїРµСЂРІСѓСЋ РѕС‡РµСЂРµРґСЊ РјС‹ СЃРѕР·РґР°С‘Рј РЅРѕРІС‹Р№ СЌР»РµРјРµРЅС‚
 		Element* New = new Element(Data);
-		// 2) "привязываем элемент к началу списка"
+		// 2) "РїСЂРёРІСЏР·С‹РІР°РµРј СЌР»РµРјРµРЅС‚ Рє РЅР°С‡Р°Р»Сѓ СЃРїРёСЃРєР°"
 		New->pNext = Head;
-		// 3) делаем новый элемент началом списка
+		// 3) РґРµР»Р°РµРј РЅРѕРІС‹Р№ СЌР»РµРјРµРЅС‚ РЅР°С‡Р°Р»РѕРј СЃРїРёСЃРєР°
 		Head = New;
 
 	}
@@ -52,15 +52,15 @@ public:
 	void push_back(int Data)
 	{
 		if (Head == nullptr)return push_front(Data);
-		// 1) в первую очередь мы создаём новый элемент
+		// 1) РІ РїРµСЂРІСѓСЋ РѕС‡РµСЂРµРґСЊ РјС‹ СЃРѕР·РґР°С‘Рј РЅРѕРІС‹Р№ СЌР»РµРјРµРЅС‚
 		Element* New = new Element(Data);
-		// 2) доходим до конца списка:
+		// 2) РґРѕС…РѕРґРёРј РґРѕ РєРѕРЅС†Р° СЃРїРёСЃРєР°:
 		Element* Temp = Head;
 		while (Temp->pNext)
 		{
 			Temp = Temp->pNext;
 		}
-		// 3) добавляем созданный элемент в конец списка:
+		// 3) РґРѕР±Р°РІР»СЏРµРј СЃРѕР·РґР°РЅРЅС‹Р№ СЌР»РµРјРµРЅС‚ РІ РєРѕРЅРµС† СЃРїРёСЃРєР°:
 		Temp->pNext = New;
 	}
 
@@ -94,17 +94,27 @@ public:
 		Temp->pNext = nullptr;
 	}
 
+	void erase(int Index)
+	{
+		Element* Temp = Head;
+		for (int i = 0; i < Index - 1; i++) Temp = Temp->pNext;
+		Element* Erased = Temp->pNext;
+		Temp->pNext = Erased->pNext;
+		delete Erased;
+	}
+
+		
 	//				Methods:
 
 	void print()const
 	{
-		Element* Temp = Head;	// Temp - это Итератор.
-		// Итератор - это указатель, при помощи которого можно получить доступ
-		// к элементам структуры данных.
+		Element* Temp = Head;	// Temp - СЌС‚Рѕ РС‚РµСЂР°С‚РѕСЂ.
+		// РС‚РµСЂР°С‚РѕСЂ - СЌС‚Рѕ СѓРєР°Р·Р°С‚РµР»СЊ, РїСЂРё РїРѕРјРѕС‰Рё РєРѕС‚РѕСЂРѕРіРѕ РјРѕР¶РЅРѕ РїРѕР»СѓС‡РёС‚СЊ РґРѕСЃС‚СѓРї
+		// Рє СЌР»РµРјРµРЅС‚Р°Рј СЃС‚СЂСѓРєС‚СѓСЂС‹ РґР°РЅРЅС‹С….
 		while (Temp)
 		{
 			cout << Temp << tab << Temp->Data << tab << Temp->pNext << endl;
-			Temp = Temp->pNext; // переходим на следующий элемент
+			Temp = Temp->pNext; // РїРµСЂРµС…РѕРґРёРј РЅР° СЃР»РµРґСѓСЋС‰РёР№ СЌР»РµРјРµРЅС‚
 		}
 	}
 };
@@ -113,7 +123,7 @@ void main()
 {
 	setlocale(LC_ALL, "");
 	int n;
-	cout << "Введите размер спика: "; cin >> n;
+	cout << "Р’РІРµРґРёС‚Рµ СЂР°Р·РјРµСЂ СЃРїРёРєР°: "; cin >> n;
 	ForwardList list;
 	for (int i = 0; i < n; i++)
 	{
@@ -130,8 +140,10 @@ void main()
 	list.print();*/
 	int value;
 	int index;
-	cout << "Введите индекс добавляемого элемента: "; cin >> index;
-	cout << "Введите значение добавляемого элемента: "; cin >> value;
+	cout << "Р’РІРµРґРёС‚Рµ РёРЅРґРµРєСЃ РґРѕР±Р°РІР»СЏРµРјРѕРіРѕ СЌР»РµРјРµРЅС‚Р°: "; cin >> index;
+	cout << "Р’РІРµРґРёС‚Рµ Р·РЅР°С‡РµРЅРёРµ РґРѕР±Р°РІР»СЏРµРјРѕРіРѕ СЌР»РµРјРµРЅС‚Р°: "; cin >> value;
 	list.insert(value, index);
+	list.print();
+	list.erase(2);
 	list.print();
 }
