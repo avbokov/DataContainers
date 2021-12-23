@@ -70,6 +70,7 @@ public:
 
 	~ForwardList()
 	{
+
 		while (Head)pop_front();
 		cout << "LDestructor:\t" << this << endl;
 	}
@@ -83,6 +84,30 @@ public:
 			push_back(Temp->Data);
 		cout << "CopyAssignment:\t" << this << endl;
 		return *this;
+	}
+
+	ForwardList& operator+(const ForwardList& other)
+	{
+		/*Element* Temp = Head;
+		while (Temp->pNext)
+		{
+			Temp = Temp->pNext;
+		}
+		Temp->pNext = other.Head;
+		return *this;*/
+
+		ForwardList* Result = new ForwardList;
+		Element* Temp = Head;
+		for (Element* Temp = Head; Temp; Temp = Temp->pNext)
+		{
+			push_front(Temp->Data);
+		}
+		Result->Head = other.Head;
+
+		
+
+		return *Result;
+			
 	}
 
 	//				Adding Elements:
@@ -193,6 +218,27 @@ public:
 	}
 };
 
+
+/*String operator+(const String& left, const String& right)
+{
+	String result(left.get_size() + right.get_size() - 1);
+	for (int i = 0; i < left.get_size(); i++)
+		//result.get_str()[i] = left.get_str()[i];
+		result[i] = left[i];
+	for (int i = 0; i < right.get_size(); i++)
+		//result.get_str()[i + left.get_size() - 1] = right.get_str()[i];
+		result[i + left.get_size() - 1] = right[i];
+	return result;
+}*/
+
+/*Fraction operator+(const Fraction& left, const Fraction& right)
+{
+	Fraction result; // Локальный объект, в который будет сохранён результат
+	result.set_ch((right.get_zn() * left.get_ch()) + (left.get_zn() * right.get_ch()));
+	result.set_zn(left.get_zn() * right.get_zn());
+	return result;
+}*/
+
 //#define BASE_CHECK
 //#define COUNT_CHECK
 //#define PERFORMANCE_CHECK
@@ -265,4 +311,6 @@ void main()
 	//list2 = list;				// вызывается CopyAssignment
 	list2.print();
 
+	ForwardList list3 = list + list2;
+	list3.print();
 }
