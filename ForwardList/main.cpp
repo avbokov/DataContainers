@@ -190,6 +190,8 @@ public:
 		size++;
 	}
 
+
+
 	void push_back(int Data)
 	{
 		if (Head == nullptr)return push_front(Data);
@@ -296,7 +298,7 @@ ForwardList operator+(const ForwardList& left, const ForwardList& right)
 	return cat;
 }
 
-//#define BASE_CHECK
+#define BASE_CHECK
 //#define COUNT_CHECK
 //#define PERFORMANCE_CHECK
 //#define OPERATOR_PLUS__CHECK
@@ -307,7 +309,7 @@ void main()
 	setlocale(LC_ALL, "");
 #ifdef BASE_CHECK
 	int n;
-	cout << "Введите размер спика: "; cin >> n;
+	cout << "Введите размер списка: "; cin >> n;
 	ForwardList list;
 	for (int i = 0; i < n; i++)
 	{
@@ -391,10 +393,10 @@ void main()
 	cout << endl;
 #endif // RANGE_BASED_FOR_ARRAY
 
-	ForwardList list = { 3,5,8,13,21 };
+	/*ForwardList list = { 3,5,8,13,21 };
 	for (int i : list)
 	{
 		cout << i << tab;
 	}
-	cout << endl;
+	cout << endl;*/
 }
