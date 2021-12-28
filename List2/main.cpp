@@ -46,7 +46,7 @@ public:
 		}
 	}
 
-	L/*ist(const std::initializer_list<int>& il) :List()
+	/*List(const std::initializer_list<int>& il) :List()
 	{
 		cout << typeid(il.begin()).name() << endl;
 		or (int const* it = il.begin(); it != il.end(); it++)
