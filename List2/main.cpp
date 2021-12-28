@@ -45,17 +45,34 @@ public:
 			push_back(*it);
 		}
 	}
-	//List(const std::initializer_list<int>& il) :List()
-	//{
-	//	//begin() - возвращает итератор на начало контейнера
-	//	//end() - возвращает итератор на конец контейнера
-	//	cout << typeid(il.end()).name() << endl;
-	//	//int const* - указатель на константу
-	//	for (int const* it = il.end()-1; it != il.begin()-1; it--)
-	//	{
-	//		push_front(*it);
-	//	}
-	//}
+
+	L/*ist(const std::initializer_list<int>& il) :List()
+	{
+		cout << typeid(il.begin()).name() << endl;
+		or (int const* it = il.begin(); it != il.end(); it++)
+		{
+			push_front(*it);
+		}
+	}*/
+
+	/*List(const std::initializer_list<int>& il) :List()
+	{
+		cout << typeid(il.end()).name() << endl;
+		for (int const* it = il.end()-1; it != il.begin()-1; it--)
+		{
+			push_front(*it);
+		}
+	}*/
+
+	/*List(const std::initializer_list<int>& il) :List()
+	{
+		cout << typeid(il.end()).name() << endl;
+		for (int const* it = il.end() - 1; it != il.begin() - 1; it--)
+		{
+			push_back(*it);
+		}
+	}*/
+
 	~List()
 	{
 		//while (Head)pop_front();
