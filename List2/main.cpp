@@ -34,6 +34,28 @@ public:
 		size = 0;
 		cout << "LConstructor:\t" << this << endl;
 	}
+	List(const std::initializer_list<int>& il) :List()
+	{
+		//begin() - возвращает итератор на начало контейнера
+		//end() - возвращает итератор на конец контейнера
+		cout << typeid(il.begin()).name() << endl;
+		//int const* - указатель на константу
+		for (int const* it = il.begin(); it != il.end(); it++)
+		{
+			push_back(*it);
+		}
+	}
+	//List(const std::initializer_list<int>& il) :List()
+	//{
+	//	//begin() - возвращает итератор на начало контейнера
+	//	//end() - возвращает итератор на конец контейнера
+	//	cout << typeid(il.end()).name() << endl;
+	//	//int const* - указатель на константу
+	//	for (int const* it = il.end()-1; it != il.begin()-1; it--)
+	//	{
+	//		push_front(*it);
+	//	}
+	//}
 	~List()
 	{
 		//while (Head)pop_front();
@@ -207,6 +229,8 @@ void main()
 #endif // BASE_CHECK
 
 	List list = { 3,5,8,13,21 };
-	list.print();
-	list.reverse_print();
+
+	
+	list.print(); 
+	//list.reverse_print();
 }
