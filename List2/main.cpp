@@ -4,19 +4,7 @@
 #include"List.h"
 #include"List.cpp"
 
-
 #define tab "\t"
-
-
-
-
-
-
-
-
-
-
-
 
 //#define BASE_CHECK
 
