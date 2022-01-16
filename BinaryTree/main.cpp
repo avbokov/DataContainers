@@ -1,4 +1,4 @@
-#include<iostream>
+ï»¿#include<iostream>
 using std::cin;
 using std::cout;
 using std::endl;
@@ -22,7 +22,7 @@ class Tree
 			cout << "EDestructor:\t" << this << endl;
 		}
 		friend class Tree;
-	}*Root; // îáúÿâëåíèå îáúåêòà êëàññà
+	}*Root; // Ð¾Ð±ÑŠÑÐ²Ð»ÐµÐ½Ð¸Ðµ Ð¾Ð±ÑŠÐµÐºÑ‚Ð° ÐºÐ»Ð°ÑÑÐ°
 public:
 	Element* getRoot()const
 	{
@@ -67,7 +67,7 @@ void main()
 	setlocale(LC_ALL, "");
 
 	int n;
-	cout << "Ââåäèòå êîëè÷åñòâî ýëåìåíòîâ: "; cin >> n;
+	cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ ÐºÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð¾Ð²: "; cin >> n;
 	Tree tree;
 	for (int i = 0; i < n; i++)
 	{
