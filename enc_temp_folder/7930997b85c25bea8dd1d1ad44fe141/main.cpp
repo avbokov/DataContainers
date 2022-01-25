@@ -218,7 +218,7 @@ public:
 
 		Element* Temp = Head;
 
-		while (Temp->pNext) // всё ломается, когда повтор оказывается в конце списка
+		while (Temp->pNext)
 		{
 			if (buffer != Temp->Data)
 			{
