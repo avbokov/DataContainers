@@ -209,6 +209,32 @@ public:
 		size++;
 	}
 
+	void unique(int Data)
+	{
+		if (Head == nullptr)return push_front(Data);
+
+		Element* New = new Element(Data);
+		int buffer = New->Data;
+
+		Element* Temp = Head;
+
+		while (Temp->pNext)
+		{
+			if (buffer != Temp->Data)
+			{
+				Temp = Temp->pNext;
+			}
+			else
+			{
+				New->Data = rand() % 10;
+				buffer = New->Data;
+				Temp = Head;
+			}
+		}
+		Temp->pNext = New;
+		size++;
+	}
+
 	void insert(int Data, int Index)
 	{
 		if (Index == 0) return push_front(Data);
@@ -298,11 +324,12 @@ ForwardList operator+(const ForwardList& left, const ForwardList& right)
 	return cat;
 }
 
-#define BASE_CHECK
+//#define BASE_CHECK
 //#define COUNT_CHECK
 //#define PERFORMANCE_CHECK
 //#define OPERATOR_PLUS__CHECK
 //#define RANGE_BASED_FOR_ARRAY
+#define UNIQUE_CHECK
 
 void main()
 {
@@ -399,4 +426,14 @@ void main()
 		cout << i << tab;
 	}
 	cout << endl;*/
+
+	int n;
+	cout << "Введите размер списка: "; cin >> n;
+	ForwardList list;
+	for (int i = 0; i < n; i++)
+	{
+		//list.push_back(rand() % 100);
+		list.unique(rand() % 100);
+	}
+	list.print();
 }
